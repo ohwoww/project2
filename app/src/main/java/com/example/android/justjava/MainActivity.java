@@ -11,7 +11,7 @@ import java.text.NumberFormat;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends ActionBarActivity {
-
+//test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,25 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(77 * 2 + 1);
+        int number = 2;
+        display(number);
+        displayPrice(number * 5);
+    }
+
+    /**
+     * This method is called when the plus button is clicked.
+     */
+    public void increment(View view) {
+        int number = 3;
+        display(number);
+    }
+
+    /**
+     * This method is called when the minus button is clicked.
+     */
+    public void decrement(View view) {
+        int number = 1;
+        display(number);
     }
 
     /**
