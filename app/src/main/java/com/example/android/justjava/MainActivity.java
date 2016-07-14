@@ -10,8 +10,11 @@ import java.text.NumberFormat;
 /**
  * This app displays an order form to order coffee.
  */
+
 public class MainActivity extends ActionBarActivity {
 //test
+
+    int number = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,16 +25,16 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int number = 2;
-        display(number);
-        displayPrice(number * 5);
+        String priceMessage = "Total: $"+(number*5);
+        priceMessage = priceMessage + "\nThank you!";
+        displayMessage(priceMessage);
     }
 
     /**
      * This method is called when the plus button is clicked.
      */
     public void increment(View view) {
-        int number = 3;
+        number = number + 1;
         display(number);
     }
 
@@ -39,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the minus button is clicked.
      */
     public void decrement(View view) {
-        int number = 1;
+        number = number - 1;
         display(number);
     }
 
@@ -57,5 +60,13 @@ public class MainActivity extends ActionBarActivity {
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
