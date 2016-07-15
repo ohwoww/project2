@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 public class MainActivity extends ActionBarActivity {
 //test
 
-    int number = 0;
+    int quantity = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String priceMessage = "Total: $"+(number*5);
+        String priceMessage = "Total: $"+(quantity*5);
         priceMessage = priceMessage + "\nThank you!";
         displayMessage(priceMessage);
     }
@@ -34,32 +34,32 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the plus button is clicked.
      */
     public void increment(View view) {
-        number = number + 1;
-        display(number);
+        quantity = quantity + 1;
+        displayQuantity(quantity);
     }
 
     /**
      * This method is called when the minus button is clicked.
      */
     public void decrement(View view) {
-        number = number - 1;
-        display(number);
+        quantity = quantity - 1;
+        displayQuantity(quantity);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int quantity) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + quantity);
     }
     /**
      * This method displays the given price on the screen.
      */
-    private void displayPrice(int number) {
+    private void displayPrice(int quantity) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(quantity));
     }
 
     /**
